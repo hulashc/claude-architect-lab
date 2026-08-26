@@ -1,0 +1,15 @@
+// Prisma schema — stub only.
+//
+// Models (User, Progress, QuizResult, ...) are intentionally not defined yet.
+// DB schema design is the next task after this scaffold — see docs/roadmap.md
+// "Open decisions". Filling this in without that design pass first would lock
+// in a shape before auth provider and progress-tracking requirements are decided.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
