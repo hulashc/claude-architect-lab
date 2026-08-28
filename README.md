@@ -41,7 +41,7 @@ tests/          Unit and integration tests
 
 ## Status
 
-V0.1 shipped — Domain 1 (Agentic Architecture & Orchestration) is fully built, live at **https://claude-architect-lab-rho.vercel.app**. See [`docs/roadmap.md`](docs/roadmap.md) for what's shipped vs. planned; Domains 2–5 land as they're studied.
+V0.1 shipped — Domain 1 (Agentic Architecture & Orchestration) is fully built and reviewed, live at **https://claude-architect-lab-rho.vercel.app**. Domains 2–5's lessons and practice questions are also live, but **Claude-drafted at the owner's direction and pending review** — a flagged, one-time exception to this project's usual author-first process (see `content/README.md` and `docs/roadmap.md`'s "V0.2–V0.5" section). Infrastructure tied to specific domains (a real MCP server, a live Claude API route, an eval harness) isn't built yet. See [`docs/roadmap.md`](docs/roadmap.md) for the full picture.
 
 ## Stack
 

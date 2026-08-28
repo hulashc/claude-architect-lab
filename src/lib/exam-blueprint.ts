@@ -80,7 +80,7 @@ export const DOMAINS: DomainBlueprint[] = [
       "Error handling",
       "Safe MCP integration design",
     ],
-    available: false,
+    available: true,
   },
   {
     id: "claude-code-configuration-workflows",
@@ -99,7 +99,7 @@ export const DOMAINS: DomainBlueprint[] = [
       "Context management",
       "Development workflows",
     ],
-    available: false,
+    available: true,
   },
   {
     id: "prompt-engineering-structured-output",
@@ -118,7 +118,7 @@ export const DOMAINS: DomainBlueprint[] = [
       "Validation and retries",
       "Deterministic logic vs. model reasoning",
     ],
-    available: false,
+    available: true,
   },
   {
     id: "context-management-reliability",
@@ -138,7 +138,7 @@ export const DOMAINS: DomainBlueprint[] = [
       "Observability and evaluations",
       "Production reliability",
     ],
-    available: false,
+    available: true,
   },
 ];
 

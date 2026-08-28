@@ -2,6 +2,8 @@
 
 Phased. Each domain is built only after it's been studied — see `CLAUDE.md` build philosophy. This file is the single source of truth for what's shipped vs. planned; keep it current as work lands.
 
+**Deviation from that philosophy, flagged explicitly:** all four remaining domains (V0.2–V0.5's content) were drafted by Claude in one pass, at the owner's explicit direction, rather than one at a time after the owner studied each — see the section below. This is a one-time, owner-directed departure from the sequential learn-then-build process, not a change to the process itself; new work after this should return to it.
+
 ## V0.1 — shipped
 
 - [x] Repo scaffold (Next.js/TS/Tailwind, folder structure, ADRs)
@@ -20,6 +22,22 @@ Phased. Each domain is built only after it's been studied — see `CLAUDE.md` bu
 - [x] Public GitHub repo — https://github.com/hulashc/claude-architect-lab
 - [x] Deployed on Vercel — https://claude-architect-lab-rho.vercel.app, auto-deploying from `master`
 
+## V0.2–V0.5 — content shipped, **pending the owner's review pass**
+
+- [x] Domain 2 (Tool Design & MCP Integration) — lesson (`content/domains/02-tool-design-mcp/lesson.ts`) + 20 practice questions (`content/quizzes/domain-2.ts`)
+- [x] Domain 3 (Claude Code Configuration & Workflows) — lesson (`content/domains/03-claude-code-configuration-workflows/lesson.ts`) + 20 practice questions (`content/quizzes/domain-3.ts`)
+- [x] Domain 4 (Prompt Engineering & Structured Output) — lesson (`content/domains/04-prompt-engineering-structured-output/lesson.ts`) + 20 practice questions (`content/quizzes/domain-4.ts`)
+- [x] Domain 5 (Context Management & Reliability) — lesson (`content/domains/05-context-management-reliability/lesson.ts`) + 20 practice questions (`content/quizzes/domain-5.ts`)
+- [x] All four wired into `src/lib/content/index.ts`; `available: true` set for all five domains in `src/lib/exam-blueprint.ts`; `tests/unit/content.test.ts` generalized to loop over every registered domain instead of hardcoding Domain 1 — full suite (68 tests) passes, `tsc`/lint/build all clean.
+- [ ] **Not done in this pass, deliberately out of scope**: the real MCP server (Domain 2), a live Claude API route (Domain 4), and an eval harness (Domain 4/5) that "Later phases" below originally tied to these domains. This was content only — see the owner's scope decision below.
+
+Each domain followed the same template and schema as Domain 1 (concept → key terms → diagram → code → scenario → concept → diagram → concept → exam trap → mini lab), drafted by Claude at the owner's explicit direction. **This is unreviewed content** — same status as Domain 1's quiz bank before its review pass, just not yet reviewed. Specific judgment calls each domain's draft flagged for that review:
+
+- **Domain 2**: the tools/resources/prompts "model-controlled / application-controlled / user-controlled" mapping is the single most load-bearing technical claim (underlies the terms block, a concept block, the exam trap, and several questions) — worth checking first against current MCP documentation. Authentication is described deliberately conceptually (API key vs. OAuth, not MCP's spec-level auth flow).
+- **Domain 3**: permission-mode names are described generically ("a cautious mode," "an edit-accepting mode") rather than naming Claude Code's actual current mode identifiers, to avoid stating exact names that could drift from the product. The `settings.json` hook schema (`PreToolUse`/`PostToolUse`, `matcher`, `hooks: [{type: "command", command}]`) is written from direct knowledge and should still get a diff against current docs.
+- **Domain 4**: the code block's retry-on-validation-failure approach (feeding a `tool_result` with `is_error: true` back to the model) uses a real Anthropic API field, but the retry-prompt phrasing itself is original composition, not a documented recipe.
+- **Domain 5**: the retry-with-backoff code sample's retryable status-code list (including `529` for Anthropic's overloaded-error status) reflects best understanding of the API's error surface, not a compiled/run check. A couple of ASCII diagrams have minor box-drawing alignment issues (cosmetic only).
+
 ## Lesson template (established in Domain 1, reused for Domains 2–5)
 
 Concept → key terms → architecture diagram → code example → real-world scenario → architecture decision → exam trap / misconception → practice questions → hands-on mini lab.
@@ -32,13 +50,10 @@ Concept → key terms → architecture diagram → code example → real-world s
 
 ## Later phases (not scoped in detail yet)
 
-- **V0.2** — Domain 2 (Tool Design & MCP). First real MCP server (`mcp/`) gets built here, not before — e.g. a Documentation MCP or Quiz-content MCP, dogfooding what's taught. Likely also when auth + a real DB (Prisma/Postgres, per ADR-0001) get wired in, since Domain 2's MCP work benefits from a persistent backend anyway.
-- **V0.3** — Domain 3 (Claude Code Configuration & Workflows).
-- **V0.4** — Domain 4 (Prompt Engineering & Structured Output). First live Claude API usage in the app itself likely lands here (e.g. a structured-output-graded scenario), plus `evaluations/` gets its first real eval harness.
-- **V0.5** — Domain 5 (Context Management & Reliability).
-- **V1.0** — Full Architecture Decision Lab (multi-scenario), Cheat Sheets, Study Planner, Mock exam mode. No cross-device progress sync — per ADR-0004, progress storage was reversed, not deferred; this stays off the roadmap unless that decision is revisited.
+- **Infrastructure for Domains 2, 4, 5** — the real MCP server (`mcp/`, dogfooding Domain 2), a live Claude API route (Domain 4, first live Claude-powered feature in the app itself), and an eval harness (`evaluations/`, Domain 4/5). Deliberately not built in the same pass as the content itself (bigger, adds real runtime dependencies and a security surface); likely also when auth + a real DB (Prisma/Postgres, per ADR-0001) get wired in.
+- **V1.0** — Full Architecture Decision Lab (multi-scenario, one per domain instead of just Domain 1's), Cheat Sheets, Study Planner, Mock exam mode. No cross-device progress sync — per ADR-0004, progress storage was reversed, not deferred; this stays off the roadmap unless that decision is revisited.
 
 ## Open decisions (deliberately deferred, not forgotten)
 
-- DB schema for users/quiz-results, and auth provider — deferred until Domain 2 (see above); **not** for progress, which per ADR-0004 is intentionally never stored, by choice rather than by timing.
+- DB schema for users/quiz-results, and auth provider — deferred until the MCP server/live API infra work above; **not** for progress, which per ADR-0004 is intentionally never stored, by choice rather than by timing.
 - Content format: resolved — see ADR-0002's revision (typed blocks + Zod, not MDX).

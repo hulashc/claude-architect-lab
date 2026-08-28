@@ -130,7 +130,7 @@ teaches it is actually studied:
 
       <section>
         <h2 className="mb-4 text-lg font-semibold">Build log</h2>
-        <article className="rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
+        <article className="mb-4 rounded-xl border border-zinc-200 p-5 dark:border-zinc-800">
           <p className="mb-2 text-xs font-medium text-zinc-500 dark:text-zinc-500">
             V0.1 — Domain 1
           </p>
@@ -146,6 +146,29 @@ teaches it is actually studied:
             all — progress is now purely session-live, resetting on reload
             (ADR-0004). All three changed after starting to build, not
             before.
+          </p>
+        </article>
+        <article className="rounded-xl border border-amber-300 bg-amber-50 p-5 dark:border-amber-800 dark:bg-amber-950/30">
+          <p className="mb-2 text-xs font-medium text-amber-700 dark:text-amber-400">
+            V0.2–V0.5 — Domains 2–5 content, pending review
+          </p>
+          <p className="text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+            A deliberate, flagged exception to this project&apos;s usual
+            process: at the owner&apos;s explicit direction, Claude drafted
+            all four remaining domains&apos; lessons and practice questions
+            in one pass — 80 questions and four full lessons, matching
+            Domain 1&apos;s template and schema exactly — rather than one
+            domain at a time after being studied. It&apos;s live on the
+            site now, and it passes every automated check (schema
+            validation, structural invariants, type-check, lint, build),
+            but it hasn&apos;t had a human review pass for technical
+            accuracy yet. Until it does, treat Domains 2–5 the way you&apos;d
+            treat a confident but unreviewed draft — see{" "}
+            <code className="rounded bg-amber-100 px-1.5 py-0.5 dark:bg-amber-900">
+              docs/roadmap.md
+            </code>{" "}
+            for exactly which claims in each domain are worth double-checking
+            first.
           </p>
         </article>
         <p className="mt-3 text-xs text-zinc-400 dark:text-zinc-600">

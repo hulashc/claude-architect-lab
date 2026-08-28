@@ -7,6 +7,6 @@ The site's actual pedagogical material — kept out of `src/` so it can be autho
 
 ## Authorship rule
 
-Every question and scenario here is written by the project author. Claude's role is reviewing drafts for technical accuracy and tagging exam concepts — not generating final question text — and nothing here is copied or derived from the real exam. See `CLAUDE.md`.
+By default, every question and scenario here is written by the project author, with Claude reviewing drafts for technical accuracy and tagging exam concepts — not generating final question text — and nothing here is copied or derived from the real exam. See `CLAUDE.md`.
 
-Nothing is populated yet — Domain 1 content is the first real content to land here (see `docs/roadmap.md`).
+Domains 2–5 are a flagged, owner-directed exception to that default: Claude drafted their lessons and quiz banks in full, at the owner's explicit direction, pending the owner's review pass — same status Domain 1's quiz bank had before its own review. See `docs/roadmap.md`'s "V0.2–V0.5" section for exactly what's unreviewed and why. All five domains are now populated.
