@@ -18,6 +18,7 @@ Phased. Each domain is built only after it's been studied — see `CLAUDE.md` bu
 - [x] Sticky lesson path rail (`LessonWithPath`) — the lesson stays a single scrollable page, but a sticky rail (sidebar on desktop, top bar on mobile) always shows the stage sequence and highlights where the learner currently is
 - [x] `/domains` sequence roadmap (`DomainPath`) — the five domains as a connected step path instead of a flat list, plus prev/next-domain links at the bottom of each lesson page; still no prerequisite gating, every domain stays clickable
 - [x] Public GitHub repo — https://github.com/hulashc/claude-architect-lab
+- [x] Deployed on Vercel — https://claude-architect-lab-rho.vercel.app, auto-deploying from `master`
 
 ## Lesson template (established in Domain 1, reused for Domains 2–5)
 

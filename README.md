@@ -41,7 +41,7 @@ tests/          Unit and integration tests
 
 ## Status
 
-Early build — see [`docs/roadmap.md`](docs/roadmap.md) for what's shipped vs. planned. Currently: project scaffold only.
+V0.1 shipped — Domain 1 (Agentic Architecture & Orchestration) is fully built, live at **https://claude-architect-lab-rho.vercel.app**. See [`docs/roadmap.md`](docs/roadmap.md) for what's shipped vs. planned; Domains 2–5 land as they're studied.
 
 ## Stack
 
