@@ -2,7 +2,7 @@
 
 ## What this project is
 
-An exam-prep + architecture-teaching site for Anthropic's CCAR-F certification. Full context: [`README.md`](README.md), [`docs/roadmap.md`](docs/roadmap.md), [`architecture/adr/`](architecture/adr/).
+An exam-prep + architecture-teaching site for Anthropic's Claude Certified Architect – Foundations certification. Full context: [`README.md`](README.md), [`docs/roadmap.md`](docs/roadmap.md), [`architecture/adr/`](architecture/adr/).
 
 ## Build philosophy — read before adding a domain feature
 

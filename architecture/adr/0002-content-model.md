@@ -1,7 +1,24 @@
 # ADR-0002: Content model for lessons and questions
 
-Status: Proposed (not yet wired into the app — revisit when Domain 1 content is actually built)
-Date: 2026-08-26
+Status: Accepted (revised) — superseded the original MDX proposal below when Domain 1 content was actually built
+Date: 2026-08-26 (revised 2026-08-26)
+
+## Revision
+
+The lesson template (concept → diagram → code → scenario → decision → exam
+trap → questions → mini lab) turned out to be block-structured, not
+prose-flowing — MDX's main advantage (embedding JSX in the middle of long
+prose) wasn't the actual need. Landed on: a discriminated union of typed
+lesson blocks (`src/lib/content/schema.ts`), each validated by Zod, with
+markdown strings only inside blocks that are genuinely prose (concept
+explanations, exam traps), rendered via `react-markdown` — safe (no
+arbitrary code execution from content, unlike MDX) and fully type-checked at
+build time. Diagrams, scenarios, and quiz questions are typed data consumed
+by dedicated components instead of JSX embedded in content. Quiz questions
+stay JSON-shaped as originally planned. This keeps one content system for
+both lessons and questions instead of two (MDX + JSON), and content bugs
+(missing rationale, two "correct" options) are Zod/test failures instead of
+rendering-time surprises.
 
 ## Context
 

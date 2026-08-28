@@ -2,7 +2,7 @@
   "name": "claude-architect-lab",
   "version": "0.1.0",
   "private": true,
-  "description": "Independent CCAR-F exam-prep and Claude architecture teaching site — built by learning, then implementing, each certification domain.",
+  "description": "Independent Claude Certified Architect – Foundations exam-prep and Claude architecture teaching site — built by learning, then implementing, each certification domain.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,10 +15,13 @@
     "next": "16.3.3",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.20",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

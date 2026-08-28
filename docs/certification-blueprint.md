@@ -1,6 +1,12 @@
-# CCAR-F exam blueprint
+# Exam blueprint — Claude Certified Architect – Foundations
 
-Source of truth: [Anthropic Academy](https://anthropic.skilljar.com/). This page mirrors the public blueprint so the site's structure and study-progress weighting stay in sync with it — it is not a copy of exam questions.
+Source of truth: [Anthropic Academy](https://anthropic.skilljar.com/claude-certified-architect-foundations-certification/444989) (redirects to the Partner Academy). This page mirrors the public blueprint so the site's structure and study-progress weighting stay in sync with it — it is not a copy of exam questions.
+
+**Sourcing note:** Anthropic's own certification page confirms the name and the $125 price directly, but the full exam format and domain weights below come from the project owner and are independently corroborated by several third-party prep resources (all converging on the same numbers) — the authoritative source is the Exam Guide PDF linked from Anthropic's certification page, which sits behind Partner Academy sign-in and wasn't directly accessible while writing this. If Anthropic revises the format, this file (and `src/lib/exam-blueprint.ts`, which mirrors it in code) needs a manual update — nothing here is fetched live.
+
+**No official abbreviation:** Anthropic's page doesn't publish one. Third-party sites use both "CCA-F" and "CCAR-F" inconsistently. This project spells out the full name rather than picking one — see `src/lib/exam-blueprint.ts`.
+
+**Eligibility:** Registration appears to run through Anthropic's Partner Academy platform, which some third-party sources describe as currently limited to employees of Anthropic Partner organizations (a company email may be required). Not independently confirmed — check Anthropic Academy for current access requirements before assuming anyone can register.
 
 ## Format
 
@@ -18,7 +24,7 @@ Source of truth: [Anthropic Academy](https://anthropic.skilljar.com/). This page
 | 4 | Prompt Engineering & Structured Output | 20% |
 | 5 | Context Management & Reliability | 15% |
 
-Study progress tracking (`content/domains/*/progress`) weights each domain's contribution to overall readiness by these percentages, not by question count — a learner who's finished Domain 1 is ~27% of the way through by weight even though it may hold more raw lessons than Domain 5.
+Study progress tracking (`src/lib/progress/store.ts`) weights each domain's contribution to overall readiness by these percentages, not by question count — a learner who's finished Domain 1 is at most ~27% of the way there by weight, even after acing every Domain 1 question, until Domains 2–5 exist.
 
 ## What each domain covers (working list — refine as lessons are built)
 

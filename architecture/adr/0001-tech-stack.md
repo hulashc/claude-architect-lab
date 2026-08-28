@@ -21,6 +21,6 @@ Chosen because it's one deployable unit that can start as an almost-static conte
 
 ## Consequences
 
-- Progress tracking and auth need a DB from V0.1 (can't defer to "later" the way a purely static site could) — schema/auth choice is the next decision, tracked in `docs/roadmap.md`.
+- Auth would need a DB *eventually*, if it's ever added. Progress tracking itself does not: per ADR-0004, progress is deliberately session-only and stores nothing — no external account setup is needed for it, now or later.
 - No agent/MCP/Claude-API code ships in the app until the domain that teaches it is actually built — see ADR-0002 and `CLAUDE.md` build philosophy. Until then, `mcp/` and `evaluations/` stay placeholders.
 - Vercel + Supabase are both free-tier-viable for a portfolio project; revisit if the site outgrows either.

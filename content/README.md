@@ -7,6 +7,6 @@ The site's actual pedagogical material — kept out of `src/` so it can be autho
 
 ## Authorship rule
 
-Every question and scenario here is written by the project author. Claude's role is reviewing drafts for technical accuracy and tagging exam concepts — not generating final question text — and nothing here is copied or derived from the real CCAR-F exam. See `CLAUDE.md`.
+Every question and scenario here is written by the project author. Claude's role is reviewing drafts for technical accuracy and tagging exam concepts — not generating final question text — and nothing here is copied or derived from the real exam. See `CLAUDE.md`.
 
 Nothing is populated yet — Domain 1 content is the first real content to land here (see `docs/roadmap.md`).
