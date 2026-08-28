@@ -30,8 +30,8 @@ That single distinction is what the rest of this domain builds on: when dynamic 
       // `terms` block type, architecture/adr/0002-content-model.md) —
       // reusing existing wording, not new explanations. "Agent loop" and
       // "Multi-agent architecture" assemble fragments from more than one
-      // sentence rather than lifting a single one; flagged for review in
-      // docs/roadmap.md's Known follow-ups.
+      // sentence rather than lifting a single one. Reviewed and approved
+      // by the owner — see docs/roadmap.md's Known follow-ups.
       type: "terms",
       title: "Key terms for this domain",
       mode: "both",
