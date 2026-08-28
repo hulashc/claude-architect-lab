@@ -159,16 +159,22 @@ teaches it is actually studied:
             in one pass — 80 questions and four full lessons, matching
             Domain 1&apos;s template and schema exactly — rather than one
             domain at a time after being studied. It&apos;s live on the
-            site now, and it passes every automated check (schema
-            validation, structural invariants, type-check, lint, build),
-            but it hasn&apos;t had a human review pass for technical
-            accuracy yet. Until it does, treat Domains 2–5 the way you&apos;d
-            treat a confident but unreviewed draft — see{" "}
+            site now, passes every automated check (schema validation,
+            structural invariants, type-check, lint, build), and Claude
+            followed up with a fact-check pass against primary sources (MCP
+            spec docs, Claude Code docs, Anthropic API docs) for the
+            specific claims flagged after drafting — one inaccuracy turned
+            up (a retry-code list in the Domain 5 code sample included
+            status codes Anthropic&apos;s API doesn&apos;t actually
+            document) and was corrected. That still isn&apos;t the same
+            thing as the owner&apos;s own review, which hasn&apos;t
+            happened yet. Until it does, treat Domains 2–5 the way
+            you&apos;d treat a carefully self-checked but still unreviewed
+            draft — see{" "}
             <code className="rounded bg-amber-100 px-1.5 py-0.5 dark:bg-amber-900">
               docs/roadmap.md
             </code>{" "}
-            for exactly which claims in each domain are worth double-checking
-            first.
+            for the full fact-check results, broken down per domain.
           </p>
         </article>
         <p className="mt-3 text-xs text-zinc-400 dark:text-zinc-600">

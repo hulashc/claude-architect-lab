@@ -141,10 +141,13 @@ const anthropic = new Anthropic();
 const MAX_ATTEMPTS = 5;
 const BASE_DELAY_MS = 500;
 
-// Retryable: transient conditions where waiting and trying again is likely to
-// help. Not retryable: e.g. a 400 (bad request) — the request itself is
-// malformed, and retrying it unchanged will just fail the same way again.
-const RETRYABLE_STATUS_CODES = new Set([408, 409, 429, 500, 502, 503, 529]);
+// Retryable: the transient conditions Anthropic's own API docs and SDKs
+// treat this way — rate limits, 5xx server errors, and connection errors.
+// 429 rate_limit_error, 500 api_error, 504 timeout_error, 529
+// overloaded_error. Not retryable: e.g. a 400 (bad request) — the request
+// itself is malformed, and retrying it unchanged will just fail the same
+// way again.
+const RETRYABLE_STATUS_CODES = new Set([429, 500, 504, 529]);
 
 async function callClaudeWithRetry(
   params: Anthropic.MessageCreateParams,
